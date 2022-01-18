@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48AA06999F20DCE15E511916 /* Pods_UIKitPreviews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1624164356DB1C40F6778039 /* Pods_UIKitPreviews.framework */; };
 		DFCEDDFC27921F9E0054DFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDDFB27921F9E0054DFCE /* AppDelegate.swift */; };
 		DFCEDDFE27921F9E0054DFCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDDFD27921F9E0054DFCE /* SceneDelegate.swift */; };
 		DFCEDE0027921F9E0054DFCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDDFF27921F9E0054DFCE /* ViewController.swift */; };
 		DFCEDE0327921F9E0054DFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFCEDE0127921F9E0054DFCE /* Main.storyboard */; };
 		DFCEDE0527921F9F0054DFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFCEDE0427921F9F0054DFCE /* Assets.xcassets */; };
 		DFCEDE0827921F9F0054DFCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFCEDE0627921F9F0054DFCE /* LaunchScreen.storyboard */; };
+		DFCEDE102795BBF10054DFCE /* UIViewController+UIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDE0F2795BBF10054DFCE /* UIViewController+UIViewControllerRepresentable.swift */; };
+		DFCEDE122795E3360054DFCE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DFCEDE112795E3360054DFCE /* Podfile */; };
+		DFCEDE14279609DB0054DFCE /* Modal_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDE13279609DB0054DFCE /* Modal_ViewController.swift */; };
+		DFCEDE16279711F70054DFCE /* PanGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDE15279711F70054DFCE /* PanGestureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1624164356DB1C40F6778039 /* Pods_UIKitPreviews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIKitPreviews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CC5F6DC5FDCB25023D347F4 /* Pods-UIKitPreviews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitPreviews.release.xcconfig"; path = "Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews.release.xcconfig"; sourceTree = "<group>"; };
+		53D5B951CDC0230968C1CD03 /* Pods-UIKitPreviews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitPreviews.debug.xcconfig"; path = "Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews.debug.xcconfig"; sourceTree = "<group>"; };
 		DFCEDDF827921F9E0054DFCE /* UIKitPreviews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitPreviews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCEDDFB27921F9E0054DFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFCEDDFD27921F9E0054DFCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +32,10 @@
 		DFCEDE0427921F9F0054DFCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFCEDE0727921F9F0054DFCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DFCEDE0927921F9F0054DFCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFCEDE0F2795BBF10054DFCE /* UIViewController+UIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIViewControllerRepresentable.swift"; sourceTree = "<group>"; };
+		DFCEDE112795E3360054DFCE /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DFCEDE13279609DB0054DFCE /* Modal_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal_ViewController.swift; sourceTree = "<group>"; };
+		DFCEDE15279711F70054DFCE /* PanGestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGestureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48AA06999F20DCE15E511916 /* Pods_UIKitPreviews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69EA69B8B26633A38839BEC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1624164356DB1C40F6778039 /* Pods_UIKitPreviews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81C47B8AE9D620D553B4A6D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53D5B951CDC0230968C1CD03 /* Pods-UIKitPreviews.debug.xcconfig */,
+				1CC5F6DC5FDCB25023D347F4 /* Pods-UIKitPreviews.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DFCEDDEF27921F9E0054DFCE = {
 			isa = PBXGroup;
 			children = (
+				DFCEDE112795E3360054DFCE /* Podfile */,
 				DFCEDDFA27921F9E0054DFCE /* UIKitPreviews */,
 				DFCEDDF927921F9E0054DFCE /* Products */,
+				81C47B8AE9D620D553B4A6D7 /* Pods */,
+				69EA69B8B26633A38839BEC4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +92,9 @@
 				DFCEDDFB27921F9E0054DFCE /* AppDelegate.swift */,
 				DFCEDDFD27921F9E0054DFCE /* SceneDelegate.swift */,
 				DFCEDDFF27921F9E0054DFCE /* ViewController.swift */,
+				DFCEDE13279609DB0054DFCE /* Modal_ViewController.swift */,
+				DFCEDE15279711F70054DFCE /* PanGestureViewController.swift */,
+				DFCEDE0F2795BBF10054DFCE /* UIViewController+UIViewControllerRepresentable.swift */,
 				DFCEDE0127921F9E0054DFCE /* Main.storyboard */,
 				DFCEDE0427921F9F0054DFCE /* Assets.xcassets */,
 				DFCEDE0627921F9F0054DFCE /* LaunchScreen.storyboard */,
@@ -74,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFCEDE0C27921F9F0054DFCE /* Build configuration list for PBXNativeTarget "UIKitPreviews" */;
 			buildPhases = (
+				EACE4A865590C554D96392C4 /* [CP] Check Pods Manifest.lock */,
 				DFCEDDF427921F9E0054DFCE /* Sources */,
 				DFCEDDF527921F9E0054DFCE /* Frameworks */,
 				DFCEDDF627921F9E0054DFCE /* Resources */,
+				7EBF08E2846FE045FF5B1E44 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,19 +165,65 @@
 			files = (
 				DFCEDE0827921F9F0054DFCE /* LaunchScreen.storyboard in Resources */,
 				DFCEDE0527921F9F0054DFCE /* Assets.xcassets in Resources */,
+				DFCEDE122795E3360054DFCE /* Podfile in Resources */,
 				DFCEDE0327921F9E0054DFCE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7EBF08E2846FE045FF5B1E44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EACE4A865590C554D96392C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UIKitPreviews-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DFCEDDF427921F9E0054DFCE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFCEDE102795BBF10054DFCE /* UIViewController+UIViewControllerRepresentable.swift in Sources */,
 				DFCEDE0027921F9E0054DFCE /* ViewController.swift in Sources */,
+				DFCEDE14279609DB0054DFCE /* Modal_ViewController.swift in Sources */,
 				DFCEDDFC27921F9E0054DFCE /* AppDelegate.swift in Sources */,
+				DFCEDE16279711F70054DFCE /* PanGestureViewController.swift in Sources */,
 				DFCEDDFE27921F9E0054DFCE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -284,6 +368,7 @@
 		};
 		DFCEDE0D27921F9F0054DFCE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53D5B951CDC0230968C1CD03 /* Pods-UIKitPreviews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +382,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +398,7 @@
 		};
 		DFCEDE0E27921F9F0054DFCE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CC5F6DC5FDCB25023D347F4 /* Pods-UIKitPreviews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -325,6 +412,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
