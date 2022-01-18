@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
@@ -92,15 +93,11 @@ class ViewController: UIViewController {
         view.addSubview(scrollView)
         
         
-//        let modal = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
         let modal = UIView(frame: .zero)
         modal.backgroundColor = .systemPurple
         view.addSubview(modal)
         view.bringSubviewToFront(modal)
-        
-//        view.addSubview(shortModal)
-//        view.bringSubviewToFront(shortModal)
-        
+                
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -131,15 +128,7 @@ class ViewController: UIViewController {
             
             placeholderView.widthAnchor.constraint(equalTo: vStackView.widthAnchor),
             placeholderView.heightAnchor.constraint(equalToConstant: 128),
-            
-//            shortModalTopConstraint,
-//            shortModal.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-//            shortModal.widthAnchor.constraint(equalTo: view.widthAnchor),
-//            shortModal.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            shortModal.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            shortModal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            shortModal.heightAnchor.constraint(equalToConstant: 100)
-            
+                        
             modal.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             modal.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             modal.heightAnchor.constraint(equalToConstant: 100),
@@ -179,6 +168,12 @@ class ViewController: UIViewController {
         newVC.view.backgroundColor = .systemBlue
         newVC.modalPresentationStyle = .currentContext
         newVC.modalTransitionStyle = .flipHorizontal
+        
+        newVC.view.rx.swipeGesture(.down)
+            .subscribe(onNext: { swipe in
+                newVC.dismiss(animated: true)
+            })
+        
         present(newVC, animated: true)
     }
     
