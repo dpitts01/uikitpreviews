@@ -169,10 +169,11 @@ class ViewController: UIViewController {
         newVC.modalPresentationStyle = .currentContext
         newVC.modalTransitionStyle = .flipHorizontal
         
-        newVC.view.rx.swipeGesture(.down)
+        newVC.view.rx.swipeGesture(.down, .right)
             .subscribe(onNext: { swipe in
                 newVC.dismiss(animated: true)
             })
+            .disposed(by: disposeBag)
         
         present(newVC, animated: true)
     }
