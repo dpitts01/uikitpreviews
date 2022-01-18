@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     
     /**
      Any subtypes that you need to add to the ViewController should go here. Sometimes making Enums for different pieces of state is useful.
+     For `modals`, they would be state-driven, .expanded/.collapsed type, included here.
      */
     
     // ----------------------------------------
@@ -42,6 +43,7 @@ class ViewController: UIViewController {
     /**
      Any UI elements that are created in code should be placed here. Usually these
      are UIBarButtonItems, but can be anything you need.
+     Yep, this is good. If we use certain elements a lot, we can just instance them, too, and split them off SwiftUI style.
      */
     
     var vStackView: UIStackView = {
@@ -61,12 +63,22 @@ class ViewController: UIViewController {
         return scrollView
     }()
     
+    let button = UIButton()
+    let secondButton = UIButton()
+    let detailLabel = UILabel()
+    var collapsed = false
+    
+    let image = UIImage(systemName: "heart.fill")
+    let imageView = UIImageView()
+    let heartOutline = UIImage(systemName: "heart")
+    
     // ----------------------------------------
     // MARK: Outlets
     // ----------------------------------------
     
     /**
      All of your IBOutlets will go here.
+     Won't have a lot if not doing a lot of IB
      */
     
     //    @IBOutlet weak var tableView: UITableView!
@@ -86,16 +98,7 @@ class ViewController: UIViewController {
     //    var viewModel: ExampleViewModel!
     
     /// Any other properties go here
-    let button = UIButton()
-    let secondButton = UIButton()
-    let detailLabel = UILabel()
-    var collapsed = false
-    
-    let image = UIImage(systemName: "heart.fill")
-    let imageView = UIImageView()
-    let heartOutline = UIImage(systemName: "heart")
     var filledIn = false
-    
     var modalShowing = false
     
     /// A UIRefreshControl used for the pull to refresh functionality of a UITableView
@@ -247,21 +250,6 @@ class ViewController: UIViewController {
          the closure without causing problems.
          */
         
-        let button = self.button
-        
-        let buttonTaps = button.rx.tap.asObservable()
-        
-        buttonTaps
-            .bind(onNext: { self.loadNewVC() } )
-            .disposed(by: disposeBag)
-        
-        let secondButton = self.secondButton
-        
-        let secondButtonTaps = secondButton.rx.tap.asObservable()
-        
-        secondButtonTaps
-            .bind(onNext: { self.loadShortModal() } )
-            .disposed(by: disposeBag)
         
         // ----------------------------------------
         // MARK: View Model
@@ -308,6 +296,23 @@ class ViewController: UIViewController {
          Here is where all of the UI bindings will happen. I like to separate them out into
          groups using MARK statements which makes things easy to find.
          */
+        
+        /// Will bind view model logic here (Currently not utilizing VM therefore refrencing self here in the property for demo purposes.
+        let button = self.button
+        
+        let buttonTaps = button.rx.tap.asObservable()
+        
+        buttonTaps
+            .bind(onNext: { self.loadNewVC() } )
+            .disposed(by: disposeBag)
+        
+        let secondButton = self.secondButton
+        
+        let secondButtonTaps = secondButton.rx.tap.asObservable()
+        
+        secondButtonTaps
+            .bind(onNext: { self.loadShortModal() } )
+            .disposed(by: disposeBag)
         
         // ----------------------------------------
         // MARK: Title
@@ -385,21 +390,7 @@ class ViewController: UIViewController {
         button.backgroundColor = [.systemRed, .systemOrange, .systemBlue, .systemPurple, .systemGreen, .systemGray][Int.random(in: 0...5)]
         print("tapped")
     }
-
-    private func loadNewVC() {
-        let newVC = UIViewController()
-        newVC.view.backgroundColor = .systemBlue
-        newVC.modalPresentationStyle = .currentContext
-        newVC.modalTransitionStyle = .flipHorizontal
-        
-        newVC.view.rx.swipeGesture(.down)
-            .subscribe(onNext: { swipe in
-                newVC.dismiss(animated: true)
-            })
-        
-        present(newVC, animated: true)
-    }
-
+    
     private func collapseText() {
         collapsed.toggle()
         detailLabel.numberOfLines = collapsed ? 4 : 0
@@ -412,6 +403,21 @@ class ViewController: UIViewController {
 
     private func loadShortModal() {
         print("showing?")
+    }
+
+    /// Handled in designated VC (Currently here for demo)
+    private func loadNewVC() {
+        let newVC = UIViewController()
+        newVC.view.backgroundColor = .systemBlue
+        newVC.modalPresentationStyle = .currentContext
+        newVC.modalTransitionStyle = .flipHorizontal
+        
+        newVC.view.rx.swipeGesture(.down)
+            .subscribe(onNext: { swipe in
+                newVC.dismiss(animated: true)
+            })
+        
+        present(newVC, animated: true)
     }
 }
 
@@ -491,4 +497,4 @@ to any ViewController with no extra code in the ViewController itself.
 // MARK: - NetworkActivityIndicatable
 // ----------------------------------------
 
-extension ExampleViewController: NetworkActivityIndicatable {}
+//extension ExampleViewController: NetworkActivityIndicatable {}
