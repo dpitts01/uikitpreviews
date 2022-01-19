@@ -46,7 +46,14 @@ class ViewController: UIViewController {
      Yep, this is good. If we use certain elements a lot, we can just instance them, too, and split them off SwiftUI style.
      */
     
-    var vStackView: UIStackView = {
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .systemGray6
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    private let vStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.alignment = .center
         stackView.axis = .vertical
@@ -56,21 +63,64 @@ class ViewController: UIViewController {
         return stackView
     }()
     
-    let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.backgroundColor = .systemGray6
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
+    private let placeholderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        return view
     }()
     
-    let button = UIButton()
-    let secondButton = UIButton()
-    let detailLabel = UILabel()
-    var collapsed = false
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "heart.fill")
+        imageView.tintColor = .systemRed
+        return imageView
+    }()
     
-    let image = UIImage(systemName: "heart.fill")
-    let imageView = UIImageView()
-    let heartOutline = UIImage(systemName: "heart")
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        let string = "Let's start givi'n"
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.systemPurple,
+            .font: UIFont.systemFont(ofSize: 44, weight: .heavy)
+        ]
+        let attributedText = NSAttributedString(string: string, attributes: attributes)
+        label.numberOfLines = 2
+        label.attributedText = attributedText
+        return label
+    }()
+    
+    private let detailLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
+        label.text = "The Givi mobile app is the one stop shop for all your giving."
+        return label
+    }()
+    
+    private let searchButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Search Events", for: .normal)
+        button.backgroundColor = .systemGreen
+        button.layer.cornerRadius = 12
+        return button
+    }()
+    
+    private let secondButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Option 2", for: .normal)
+        button.setTitleColor(.systemGreen, for: .normal)
+        button.layer.cornerRadius = 12
+        button.layer.borderColor = UIColor.systemGreen.cgColor
+        button.layer.borderWidth = 1
+        return button
+    }()
+    
+    private let modal: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .systemPurple
+        return view
+    }()
     
     // ----------------------------------------
     // MARK: Outlets
@@ -98,8 +148,8 @@ class ViewController: UIViewController {
     //    var viewModel: ExampleViewModel!
     
     /// Any other properties go here
-    var filledIn = false
     var modalShowing = false
+    var collapsed = false
     
     /// A UIRefreshControl used for the pull to refresh functionality of a UITableView
     //    private let refreshControl = UIRefreshControl()
@@ -111,93 +161,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let placeholderView = UIView()
-        placeholderView.backgroundColor = .systemGray5
-        
-        imageView.image = filledIn ? image : heartOutline
-        imageView.tintColor = .systemRed
-        
-        let string = "Let's start givi'n"
-        let attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.systemPurple,
-            .font: UIFont.systemFont(ofSize: 44, weight: .heavy)
-        ]
-        
-        let attributedText = NSAttributedString(string: string, attributes: attributes)
-        
-        let label = UILabel()
-        label.numberOfLines = 2
-        label.attributedText = attributedText
-        
-        detailLabel.numberOfLines = 0
-        detailLabel.font = .preferredFont(forTextStyle: .body)
-        detailLabel.adjustsFontForContentSizeCategory = true
-        detailLabel.text = "The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs. The Givi mobile app is the one stop shop for all your giving & non-profit event needs."
-        
-        button.setTitle("Search Events", for: .normal)
-        button.backgroundColor = .systemGreen
-        button.layer.cornerRadius = 12
-        
-        secondButton.setTitle("Option 2", for: .normal)
-        secondButton.setTitleColor(.systemGreen, for: .normal)
-        secondButton.layer.cornerRadius = 12
-        secondButton.layer.borderColor = UIColor.systemGreen.cgColor
-        secondButton.layer.borderWidth = 1
-        
-        vStackView.addArrangedSubview(placeholderView)
-        vStackView.addArrangedSubview(imageView)
-        vStackView.addArrangedSubview(label)
-        vStackView.addArrangedSubview(detailLabel)
-        vStackView.addArrangedSubview(button)
-        vStackView.addArrangedSubview(secondButton)
-        scrollView.addSubview(vStackView)
-        view.addSubview(scrollView)
-        
-        
-        let modal = UIView(frame: .zero)
-        modal.backgroundColor = .systemPurple
-        view.addSubview(modal)
-        view.bringSubviewToFront(modal)
-        
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            //            scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
-            //            scrollView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),
-            //            scrollView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            //            scrollView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
-            
-            vStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            vStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
-            vStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
-            vStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
-            vStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32),
-            
-            imageView.heightAnchor.constraint(equalToConstant: 64),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.1),
-            
-            button.widthAnchor.constraint(equalTo: vStackView.widthAnchor),
-            button.heightAnchor.constraint(equalToConstant: 44),
-            
-            secondButton.widthAnchor.constraint(equalTo: vStackView.widthAnchor),
-            secondButton.heightAnchor.constraint(equalToConstant: 44),
-            
-            //            detailLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0),
-            
-            placeholderView.widthAnchor.constraint(equalTo: vStackView.widthAnchor),
-            placeholderView.heightAnchor.constraint(equalToConstant: 128),
-            
-            modal.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            modal.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            modal.heightAnchor.constraint(equalToConstant: 100),
-            modal.topAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
         bindView()
-        //        setupView()
+        setupView()
         
     }
     
@@ -205,29 +170,84 @@ class ViewController: UIViewController {
      All of the one time setup code should be added here. Things like registering
      UITableViewCells, view configuration, etc.
      */
-    //    private func setupView() {
-    
-    /// This is how you register a UITableViewCell to be used with the UITableView.
-    /// Note that the reuseIdentifier for the cell needs to be the name of the
-    /// subclass. This is done automatically for you if you don't put anything.
-    //        tableView.register(ExampleTableViewCell.self)
-    
-    /// This is a commonly used extension method that hides extra cells, to see
-    /// more functionality available to you look at `QgivKit/Extensions/UITableView`
-    //        tableView.hideEmptyCells()
-    //        tableView.refreshControl = refreshControl
-    
-    /// This sets the UITableView delegate through RxSwift rather than the way you
-    /// may be used to. It is important to use this syntax when setting the delegate.
-    //        tableView.rx.setDelegate(self).disposed(by: disposeBag)
-    
-    /// This is where navigation items get set.
-    //        navigationItem.leftBarButtonItem = someButton
-    
-    /// This is a very common convenience method that adds a toolbar and done button
-    /// to UITextFields and UISearchBars. This is used on almost every text input.
-    //        searchBar.addDoneButton(disposedBy: disposeBag)
-    //    }
+    private func setupView() {
+        
+        view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        scrollView.addSubview(vStackView)
+        NSLayoutConstraint.activate([
+        vStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+        vStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
+        vStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
+        vStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
+        vStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32)
+        ])
+        
+        
+        vStackView.addArrangedSubview(placeholderView)
+        NSLayoutConstraint.activate([
+            placeholderView.widthAnchor.constraint(equalTo: vStackView.widthAnchor),
+            placeholderView.heightAnchor.constraint(equalToConstant: 128)
+        ])
+        
+        vStackView.addArrangedSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.heightAnchor.constraint(equalToConstant: 64),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.1)
+        ])
+        
+        vStackView.addArrangedSubview(titleLabel)
+        
+        vStackView.addArrangedSubview(detailLabel)
+        
+        vStackView.addArrangedSubview(searchButton)
+        NSLayoutConstraint.activate([
+            searchButton.widthAnchor.constraint(equalTo: vStackView.widthAnchor),
+            searchButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+       
+        vStackView.addArrangedSubview(secondButton)
+        NSLayoutConstraint.activate([
+            secondButton.widthAnchor.constraint(equalTo: vStackView.widthAnchor),
+            secondButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        view.addSubview(modal)
+        view.bringSubviewToFront(modal)
+        NSLayoutConstraint.activate([
+            modal.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            modal.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            modal.heightAnchor.constraint(equalToConstant: 100),
+            modal.topAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        /// This is how you register a UITableViewCell to be used with the UITableView.
+        /// Note that the reuseIdentifier for the cell needs to be the name of the
+        /// subclass. This is done automatically for you if you don't put anything.
+        //        tableView.register(ExampleTableViewCell.self)
+        
+        /// This is a commonly used extension method that hides extra cells, to see
+        /// more functionality available to you look at `QgivKit/Extensions/UITableView`
+        //        tableView.hideEmptyCells()
+        //        tableView.refreshControl = refreshControl
+        
+        /// This sets the UITableView delegate through RxSwift rather than the way you
+        /// may be used to. It is important to use this syntax when setting the delegate.
+        //        tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        
+        /// This is where navigation items get set.
+        //        navigationItem.leftBarButtonItem = someButton
+        
+        /// This is a very common convenience method that adds a toolbar and done button
+        /// to UITextFields and UISearchBars. This is used on almost every text input.
+        //        searchBar.addDoneButton(disposedBy: disposeBag)
+    }
     
     /**
      This is where the ViewModel gets connected to the ViewController and where
@@ -298,7 +318,7 @@ class ViewController: UIViewController {
          */
         
         /// Will bind view model logic here (Currently not utilizing VM therefore refrencing self here in the property for demo purposes.
-        let button = self.button
+        let button = self.searchButton
         
         let buttonTaps = button.rx.tap.asObservable()
         
@@ -387,7 +407,7 @@ class ViewController: UIViewController {
     
     /// Testing Live Preview methods
     private func changeColor() {
-        button.backgroundColor = [.systemRed, .systemOrange, .systemBlue, .systemPurple, .systemGreen, .systemGray][Int.random(in: 0...5)]
+        searchButton.backgroundColor = [.systemRed, .systemOrange, .systemBlue, .systemPurple, .systemGreen, .systemGray][Int.random(in: 0...5)]
         print("tapped")
     }
     
@@ -395,16 +415,11 @@ class ViewController: UIViewController {
         collapsed.toggle()
         detailLabel.numberOfLines = collapsed ? 4 : 0
     }
-
-    private func unfillHeart() {
-        filledIn.toggle()
-        imageView.image = filledIn ? image : heartOutline
-    }
-
+  
     private func loadShortModal() {
         print("showing?")
     }
-
+    
     /// Handled in designated VC (Currently here for demo)
     private func loadNewVC() {
         let newVC = UIViewController()
@@ -475,11 +490,11 @@ struct ViewController_Previews: PreviewProvider {
 // ----------------------------------------
 
 /**
-If you need further customization of the UITableView you can use delegate methods just as you normally would.
-
-Note that if you need to access properties on the section dataSource you will need to hold a strong reference
-to it in the ViewController and it can be accessed using the indexPath in the delegate method.
-*/
+ If you need further customization of the UITableView you can use delegate methods just as you normally would.
+ 
+ Note that if you need to access properties on the section dataSource you will need to hold a strong reference
+ to it in the ViewController and it can be accessed using the indexPath in the delegate method.
+ */
 
 //extension ExampleViewController: UITableViewDelegate {
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -488,10 +503,10 @@ to it in the ViewController and it can be accessed using the indexPath in the de
 //}
 
 /**
-Extensions with no implementation should be at the very bottom of the file. Here we are
-conforming to the `NetworkActivityIndicatable` protocol which lets us add a UIActivityIndicator
-to any ViewController with no extra code in the ViewController itself.
-*/
+ Extensions with no implementation should be at the very bottom of the file. Here we are
+ conforming to the `NetworkActivityIndicatable` protocol which lets us add a UIActivityIndicator
+ to any ViewController with no extra code in the ViewController itself.
+ */
 
 // ----------------------------------------
 // MARK: - NetworkActivityIndicatable
