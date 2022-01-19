@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		48AA06999F20DCE15E511916 /* Pods_UIKitPreviews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1624164356DB1C40F6778039 /* Pods_UIKitPreviews.framework */; };
 		DF97935727973BF800B17A18 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF97935627973BF800B17A18 /* ItemsViewController.swift */; };
+		DF97935927985F7200B17A18 /* DemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF97935827985F7200B17A18 /* DemoItem.swift */; };
+		DF97935B279861DF00B17A18 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF97935A279861DF00B17A18 /* ItemsTableViewController.swift */; };
 		DFCEDDFC27921F9E0054DFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDDFB27921F9E0054DFCE /* AppDelegate.swift */; };
 		DFCEDDFE27921F9E0054DFCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDDFD27921F9E0054DFCE /* SceneDelegate.swift */; };
 		DFCEDE0027921F9E0054DFCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDDFF27921F9E0054DFCE /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 		1CC5F6DC5FDCB25023D347F4 /* Pods-UIKitPreviews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitPreviews.release.xcconfig"; path = "Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews.release.xcconfig"; sourceTree = "<group>"; };
 		53D5B951CDC0230968C1CD03 /* Pods-UIKitPreviews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitPreviews.debug.xcconfig"; path = "Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews.debug.xcconfig"; sourceTree = "<group>"; };
 		DF97935627973BF800B17A18 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		DF97935827985F7200B17A18 /* DemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoItem.swift; sourceTree = "<group>"; };
+		DF97935A279861DF00B17A18 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		DFCEDDF827921F9E0054DFCE /* UIKitPreviews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitPreviews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCEDDFB27921F9E0054DFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFCEDDFD27921F9E0054DFCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 				DFCEDE13279609DB0054DFCE /* Modal_ViewController.swift */,
 				DFCEDE15279711F70054DFCE /* PanGestureViewController.swift */,
 				DFCEDE0F2795BBF10054DFCE /* UIViewController+UIViewControllerRepresentable.swift */,
+				DF97935827985F7200B17A18 /* DemoItem.swift */,
+				DF97935A279861DF00B17A18 /* ItemsTableViewController.swift */,
 				DFCEDE0127921F9E0054DFCE /* Main.storyboard */,
 				DFCEDE0427921F9F0054DFCE /* Assets.xcassets */,
 				DFCEDE0627921F9F0054DFCE /* LaunchScreen.storyboard */,
@@ -227,6 +233,8 @@
 				DFCEDE14279609DB0054DFCE /* Modal_ViewController.swift in Sources */,
 				DFCEDDFC27921F9E0054DFCE /* AppDelegate.swift in Sources */,
 				DF97935727973BF800B17A18 /* ItemsViewController.swift in Sources */,
+				DF97935B279861DF00B17A18 /* ItemsTableViewController.swift in Sources */,
+				DF97935927985F7200B17A18 /* DemoItem.swift in Sources */,
 				DFCEDE16279711F70054DFCE /* PanGestureViewController.swift in Sources */,
 				DFCEDDFE27921F9E0054DFCE /* SceneDelegate.swift in Sources */,
 			);
