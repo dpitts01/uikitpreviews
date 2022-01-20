@@ -130,7 +130,6 @@ class ViewController: UIViewController {
      All of your IBOutlets will go here.
      Won't have a lot if not doing a lot of IB
      */
-    
     //    @IBOutlet weak var tableView: UITableView!
     
     // ----------------------------------------
@@ -147,7 +146,7 @@ class ViewController: UIViewController {
     /// unwrapped here but for safety it can be an optional.
     //    var viewModel: ExampleViewModel!
     
-    /// Any other properties go here
+    /// Any other properties go here including keeping track of state i.e. modals
     var modalShowing = false
     var collapsed = false
     

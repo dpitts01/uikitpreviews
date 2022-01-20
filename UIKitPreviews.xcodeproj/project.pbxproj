@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		48AA06999F20DCE15E511916 /* Pods_UIKitPreviews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1624164356DB1C40F6778039 /* Pods_UIKitPreviews.framework */; };
+		63ED30AC2799B55800C030FB /* UIView+UIViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ED30AB2799B55800C030FB /* UIView+UIViewRepresentable.swift */; };
+		63ED30AE2799B86900C030FB /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ED30AD2799B86900C030FB /* DemoView.swift */; };
 		DF97935727973BF800B17A18 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF97935627973BF800B17A18 /* ItemsViewController.swift */; };
 		DF97935927985F7200B17A18 /* DemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF97935827985F7200B17A18 /* DemoItem.swift */; };
 		DF97935B279861DF00B17A18 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF97935A279861DF00B17A18 /* ItemsTableViewController.swift */; };
@@ -27,6 +29,8 @@
 		1624164356DB1C40F6778039 /* Pods_UIKitPreviews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIKitPreviews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC5F6DC5FDCB25023D347F4 /* Pods-UIKitPreviews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitPreviews.release.xcconfig"; path = "Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews.release.xcconfig"; sourceTree = "<group>"; };
 		53D5B951CDC0230968C1CD03 /* Pods-UIKitPreviews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitPreviews.debug.xcconfig"; path = "Target Support Files/Pods-UIKitPreviews/Pods-UIKitPreviews.debug.xcconfig"; sourceTree = "<group>"; };
+		63ED30AB2799B55800C030FB /* UIView+UIViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UIViewRepresentable.swift"; sourceTree = "<group>"; };
+		63ED30AD2799B86900C030FB /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		DF97935627973BF800B17A18 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		DF97935827985F7200B17A18 /* DemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoItem.swift; sourceTree = "<group>"; };
 		DF97935A279861DF00B17A18 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
@@ -101,13 +105,15 @@
 				DF97935627973BF800B17A18 /* ItemsViewController.swift */,
 				DFCEDE13279609DB0054DFCE /* Modal_ViewController.swift */,
 				DFCEDE15279711F70054DFCE /* PanGestureViewController.swift */,
-				DFCEDE0F2795BBF10054DFCE /* UIViewController+UIViewControllerRepresentable.swift */,
 				DF97935827985F7200B17A18 /* DemoItem.swift */,
 				DF97935A279861DF00B17A18 /* ItemsTableViewController.swift */,
 				DFCEDE0127921F9E0054DFCE /* Main.storyboard */,
 				DFCEDE0427921F9F0054DFCE /* Assets.xcassets */,
 				DFCEDE0627921F9F0054DFCE /* LaunchScreen.storyboard */,
 				DFCEDE0927921F9F0054DFCE /* Info.plist */,
+				DFCEDE0F2795BBF10054DFCE /* UIViewController+UIViewControllerRepresentable.swift */,
+				63ED30AB2799B55800C030FB /* UIView+UIViewRepresentable.swift */,
+				63ED30AD2799B86900C030FB /* DemoView.swift */,
 			);
 			path = UIKitPreviews;
 			sourceTree = "<group>";
@@ -234,8 +240,10 @@
 				DFCEDDFC27921F9E0054DFCE /* AppDelegate.swift in Sources */,
 				DF97935727973BF800B17A18 /* ItemsViewController.swift in Sources */,
 				DF97935B279861DF00B17A18 /* ItemsTableViewController.swift in Sources */,
+				63ED30AC2799B55800C030FB /* UIView+UIViewRepresentable.swift in Sources */,
 				DF97935927985F7200B17A18 /* DemoItem.swift in Sources */,
 				DFCEDE16279711F70054DFCE /* PanGestureViewController.swift in Sources */,
+				63ED30AE2799B86900C030FB /* DemoView.swift in Sources */,
 				DFCEDDFE27921F9E0054DFCE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
